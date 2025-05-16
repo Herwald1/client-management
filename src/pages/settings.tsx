@@ -7,6 +7,8 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
+import { Card } from "@/components/ui/card"
+import { Dialog } from "@/components/ui/dialog"
 import { Separator } from "@/components/ui/separator"
 import {
   SidebarInset,
@@ -40,7 +42,7 @@ export default function SettingsPage() {
           <div className="rounded-xl bg-muted/50 p-6">
             <h1 className="text-2xl font-bold mb-4">Settings</h1>
             <div className="space-y-4">
-              <div className="rounded-lg border p-4">
+              {/* <div className="rounded-lg border p-4">
                 <h2 className="text-lg font-semibold mb-2">General Settings</h2>
                 <p className="text-muted-foreground">Configure your general preferences here.</p>
               </div>
@@ -51,7 +53,23 @@ export default function SettingsPage() {
               <div className="rounded-lg border p-4">
                 <h2 className="text-lg font-semibold mb-2">Notifications</h2>
                 <p className="text-muted-foreground">Configure your notification preferences.</p>
-              </div>
+              </div> */}
+              <Card className="rounded-lg border p-4">
+                <h2 className="text-lg font-semibold mb-2">General Settings</h2>
+                <p className="text-muted-foreground">Configure your general preferences here.</p>
+              </Card>
+              <Card className="rounded-lg border p-4">
+                <h2 className="text-lg font-semibold mb-2">Account Settings</h2>
+                <p className="text-muted-foreground">Manage your account settings and preferences.</p>
+              </Card>
+              <Card className="rounded-lg border p-4">
+                <h2 className="text-lg font-semibold mb-2">Notifications</h2>
+                <p className="text-muted-foreground">Configure your notification preferences.</p>
+              </Card>
+              <Card className="rounded-lg border p-4">
+                <h2 className="text-lg font-semibold mb-2">Privacy Settings</h2>
+                <p className="text-muted-foreground">Manage your privacy settings and preferences.</p>
+              </Card>
             </div>
           </div>
         </div>

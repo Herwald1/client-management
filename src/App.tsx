@@ -1,17 +1,31 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter as Router, useRoutes } from 'react-router-dom'
 import { ThemeProvider } from './components/theme-provider'
-import DashboardPage from './pages/dashboard'
-import SettingsPage from './pages/settings'
+import { routes } from './routes'
+import { Suspense } from 'react'
+
+// Loading component for Suspense fallback
+function LoadingFallback() {
+  return (
+    <div className="flex h-screen w-full items-center justify-center">
+      <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent"></div>
+    </div>
+  )
+}
+
+function AppRoutes() {
+  const element = useRoutes(routes)
+  return (
+    <Suspense fallback={<LoadingFallback />}>
+      {element}
+    </Suspense>
+  )
+}
 
 function App() {
   return (
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
       <Router>
-        <Routes>
-          <Route path="/" element={<Navigate to="/dashboard" replace />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/settings" element={<SettingsPage />} />
-        </Routes>
+        <AppRoutes />
       </Router>
     </ThemeProvider>
   )
