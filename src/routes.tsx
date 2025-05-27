@@ -1,9 +1,11 @@
 import type { RouteObject } from "react-router-dom"
 import { lazy } from "react"
+import IndividualsIndex from "./pages/clientmanagement/individuals/individualsIndex"
 
 // Lazy load all page components
 const DashboardPage = lazy(() => import("./pages/dashboard"))
 const SettingsPage = lazy(() => import("./pages/settings"))
+const IndividualsForm = lazy(() => import("./pages/clientmanagement/individuals/individualsForm"))
 // TODO: Import other pages when they are created
 // const AnalyticsPage = lazy(() => import("./pages/analytics"))
 // const ReportsPage = lazy(() => import("./pages/reports"))
@@ -35,6 +37,19 @@ export const routes: RouteObject[] = [
           {
             path: "reports",
             element: <DashboardPage />, // TODO: Replace with <ReportsPage />
+          },
+        ],
+      },
+      {
+        path: "clientmanagement",
+        children: [
+          {
+            path: "individuals",
+            element: <IndividualsIndex />,
+          },
+          {
+            path: "individualForm",
+            element: <IndividualsForm />,
           },
         ],
       },
