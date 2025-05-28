@@ -1,55 +1,74 @@
-# React + TypeScript + Vite
+# Client Management Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web application for managing client information, built with React, TypeScript, and Shadcn UI.
 
-Currently, two official plugins are available:
+## 🚧 Project Status
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is currently under development and is not complete. Features are being added incrementally.
 
-## Expanding the ESLint configuration
+## 🎯 Project Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+This dashboard application is designed to help businesses manage their client information effectively. It provides features for:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- Individual client management
+- Client data organization
+- Form handling and data submission
+- Modern UI with responsive design
+
+## 📁 Project Structure
+
+```
+src/
+├── components/
+│   ├── ui/                 # UI components (buttons, cards, tables, etc.)
+│   │   ├── button.tsx
+│   │   ├── card.tsx
+│   │   ├── dataTable.tsx
+│   │   ├── loadingBtn.tsx
+│   │   └── ...
+│   ├── app-sidebar.tsx     # Main navigation sidebar
+│   └── page-template.tsx   # Page layout template
+├── pages/
+│   ├── clientmanagement/   # Client management features
+│   │   └── individuals/    # Individual client management
+│   ├── dashboard.tsx       # Main dashboard
+│   └── settings.tsx        # Application settings
+└── lib/
+    └── utils.ts           # Utility functions
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Technologies Used
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- React
+- TypeScript
+- Shadcn UI
+- Formik (Form handling)
+- TanStack Table (Data tables)
+- Tailwind CSS
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
-# dashboard-shadcn
+## 🚀 Getting Started
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+## 📝 Notes
+
+- This is a work in progress
+- Some features may be incomplete or under development
+- UI components are based on Shadcn UI
+- The project uses modern React practices and TypeScript for type safety
+
+## 🔜 Planned Features
+
+- [ ] Complete client management system
+- [ ] Data persistence
+- [ ] User authentication
+- [ ] Advanced search and filtering
+- [ ] Data export functionality
