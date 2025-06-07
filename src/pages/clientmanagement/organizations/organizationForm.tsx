@@ -16,14 +16,9 @@ export default function IndividualsForm() {
 
     const formik = useFormik({
         initialValues: {
-            firstName: '',
-            lastName: '',
+            name: '',
+            industry: '',
             email: '',
-            phone: '',
-            address: '',
-            city: '',
-            state: '',
-            dateOfBirth: new Date(),
         },
         onSubmit: async (values) => {
             setIsLoading(true)
@@ -65,61 +60,18 @@ export default function IndividualsForm() {
                         <div className="col-span-2">
                             <Input
                                 type="text"
-                                placeholder="First Name"
-                                name="firstName"
-                                value={formik.values.firstName}
+                                placeholder="Name"
+                                name="name"
+                                value={formik.values.name}
                                 onChange={formik.handleChange}
                             />
                         </div>
                         <div className="col-span-2">
                             <Input
                                 type="text"
-                                placeholder="Last Name"
-                                name="lastName"
-                                value={formik.values.lastName}
-                                onChange={formik.handleChange}
-                            />
-                        </div>
-
-                        <div className="col-span-2">
-                            <Input
-                                type="text"
-                                placeholder="Phone"
-                                name="phone"
-                                value={formik.values.phone}
-                                onChange={formik.handleChange}
-                            />
-                        </div>
-                        <div className="col-span-2">
-                            <Popover>
-                                <PopoverTrigger asChild>
-                                    <Button
-                                        variant={"outline"}
-                                        className={cn(
-                                            "w-full justify-start text-left font-normal",
-                                            !formik.values.dateOfBirth && "text-muted-foreground"
-                                        )}
-                                    >
-                                        <CalendarIcon />
-                                        {formik.values.dateOfBirth ? format(formik.values.dateOfBirth, "PPP") : <span>Pick a date</span>}
-                                    </Button>
-                                </PopoverTrigger>
-                                <PopoverContent className="w-auto p-0" align="start">
-                                    <Calendar
-                                        mode="single"
-                                        selected={formik.values.dateOfBirth}
-                                        onSelect={(day) => formik.setFieldValue("dateOfBirth", day)}
-                                        initialFocus
-                                    />
-                                </PopoverContent>   
-                            </Popover>
-                        </div>
-                        <div className="col-span-4">
-                            <Input
-                                type="text"
-                                placeholder="Address"
-                                name="address"
-                                value={formik.values.address}
+                                placeholder="Industry"
+                                name="industry"
+                                value={formik.values.industry}
                                 onChange={formik.handleChange}
                             />
                         </div>

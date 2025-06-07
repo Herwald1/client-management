@@ -77,7 +77,7 @@ const data = {
         },
         {
           title: "Organizations",
-          url: "#",
+          url: "/clientmanagement/organizations",
         }
       ],
     },
