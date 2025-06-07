@@ -22,16 +22,18 @@ const columns: ColumnDef<any>[] = [
         accessorKey: "id"
     },
     {
-        header: "First Name",
-        accessorKey: "first_name",
+        header: "Name",
+        accessorKey: "name",
     },
     {
-        header: "Last Name",
-        accessorKey: "last_name",
-    },
-    {
-        header: "DOB",
-        accessorKey: "dob",
+        header: "Industry",
+        accessorKey: "industry",
+        cell: ({ row }) => {
+            const item = row.original
+            // Capitalize the first letter of the industry
+            const capitalizedIndustry = item.industry.charAt(0).toUpperCase() + item.industry.slice(1)
+            return capitalizedIndustry
+        }
     },
     {
         id: "actions",
@@ -52,7 +54,7 @@ const columns: ColumnDef<any>[] = [
                     <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
                         <DropdownMenuItem
-                            onClick={() => navigator.clipboard.writeText(item.first_name + " " +item.last_name)}
+                            onClick={() => navigator.clipboard.writeText(item.name)}
                         >
                             Copy Client Name
                         </DropdownMenuItem>
@@ -70,28 +72,32 @@ const columns: ColumnDef<any>[] = [
 const data: any = [
     {
         id:'1',
-        first_name:'Herwald',
-        last_name: 'Humes',
-        dob:'20/05/2003 ',        
-    }
-
+        name:'SenS Co.',
+        industry:'finance',
+    },
+    {
+        id:'2',
+        name:'SenS Tech',
+        industry:'technology',
+    },
+    
 ]
 
-export default function IndividualsIndex() {
+export default function OrganizationsIndex() {
     const navigate = useNavigate()
     return (
         <Page
-            title="Individuals"
+            title="Organizations"
             breadcrumbs={[
                 { label: "Home", href: "/" },
                 { label: "Client Management", isCurrentPage: false },
-                { label: "Individuals", isCurrentPage: true },
+                { label: "Organizations", isCurrentPage: true },
             ]}
         >
             <div className="flex justify-end mb-4">
-                <Button onClick={() => navigate("/clientmanagement/individualForm")}>
+                <Button onClick={() => navigate("/clientmanagement/organizationForm")}>
                     <Plus className="mr-2" />
-                    Add Individual
+                    Add Organization
                 </Button>
             </div>
             <DataTable columns={columns} data={data} />
